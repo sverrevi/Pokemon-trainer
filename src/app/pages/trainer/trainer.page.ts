@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './profile.page.html',
-  styleUrls: ['./profile.page.css']
+  templateUrl: './trainer.page.html',
+  styleUrls: ['./trainer.page.css']
 })
 export class ProfilePage {
 

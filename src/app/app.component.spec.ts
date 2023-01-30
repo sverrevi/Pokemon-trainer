@@ -19,7 +19,7 @@ describe('AppComponent', () => {
   it(`should have as title 'ng-pokemon-trainer'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ng-pokemon-trainer');
+    expect(app.title).toEqual('Pokemon-trainer');
   });
 
   it('should render title', () => {

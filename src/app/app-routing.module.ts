@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core"
 import { RouterModule, Routes } from "@angular/router";
 import { LoginPage } from "./pages/login/login.page";
 import { PokemonCataloguePage } from "./pages/pokemon-catalogue/pokemon-catalogue.page";
-import { ProfilePage } from "./pages/profile/profile.page";
+import { ProfilePage } from "./pages/trainer/trainer.page";
 
 const routes: Routes = [
 
