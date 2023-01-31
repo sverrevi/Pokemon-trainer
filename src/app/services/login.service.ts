@@ -3,9 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, switchMap, of, tap } from 'rxjs';
 import { environment } from 'src/environment/environment';
-import { StorageKeys } from '../enums/storage-keys.enum';
 import { Trainer } from '../models/trainer.model';
-import { StorageUtils } from '../utils/storage.utils';
+
 
 const { apiTrainers, apiKey } = environment;
 
@@ -25,9 +24,6 @@ export class LoginService {
           return this.createTrainer(username)
         }
         return of(trainer)   
-      }),
-      tap((trainer: Trainer) => {
-        StorageUtils.localStorageSave<Trainer>(StorageKeys.Trainer, trainer);
       })
     )
   }

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Trainer } from 'src/app/models/trainer.model';
 import { LoginService } from 'src/app/services/login.service';
+import { TrainerService } from 'src/app/services/trainer.service';
 
 @Component({
   selector: 'app-login-form',
@@ -10,10 +11,14 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent {
+
+@Output() login: EventEmitter<void> = new EventEmitter();
+
   //Dependency Injection
   constructor(
-    private readonly router: Router,
-    private readonly loginService: LoginService) {  }
+    private readonly trainerService: TrainerService,
+    private readonly loginService: LoginService)
+     {  }
 
 
 
@@ -25,10 +30,12 @@ export class LoginFormComponent {
     this.loginService.login(username).subscribe({
       next: (trainer: Trainer) => {
         // Redirect to the catalogue page 
-        this.router.navigateByUrl("/pokemon-catalogue")
+        this.trainerService.trainer = trainer;
+        this.login.emit();
 
       },
       error: () => {
+        //Handle local
 
       }
 
