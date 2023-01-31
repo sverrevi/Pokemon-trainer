@@ -7,7 +7,7 @@ import { StorageUtils } from '../utils/storage.utils';
   providedIn: 'root'
 })
 export class TrainerService {
-
+//This is in state, so other components have access to it 
   private _trainer?: Trainer;
 
    get trainer(): Trainer | undefined { return this._trainer }

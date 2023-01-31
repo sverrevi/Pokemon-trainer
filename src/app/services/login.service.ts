@@ -13,14 +13,15 @@ const { apiTrainers, apiKey } = environment;
 })
 export class LoginService {
 
-
 //Dependency injection 
   constructor(private readonly http: HttpClient) { }
 
   public login(username: string) : Observable<Trainer> {
     return this.chkUsername(username).pipe(
+      //Using the switchMap for creating a new user in one call. 
       switchMap((trainer: Trainer | undefined) => {
         if(trainer === undefined){
+          //Makes a post request to the api with the username
           return this.createTrainer(username)
         }
         return of(trainer)   
@@ -58,6 +59,8 @@ export class LoginService {
       return this.http.post<Trainer>(apiTrainers, trainer, {
         headers
       })
+
+      //Maybe making a part that informs the user that its created a new user
 
     }
 
