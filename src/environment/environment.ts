@@ -6,3 +6,7 @@ export const environment = {
     apiPokemonSprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/", //Behind this / it needs to have a pokemon nr and png eks: 1.png
     apiKey: "appAPI123"
 }
+
+//,
+
+//"https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"

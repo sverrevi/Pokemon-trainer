@@ -28,9 +28,6 @@ export class LoginService {
       })
     )
   }
-
-    //Models, httpclient Observables, and RxJS operators
-
     //Needs to make Login function
 
     //Needs to check if user is in DB 
