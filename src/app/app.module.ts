@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonCataloguePage } from './pages/pokemon-catalogue/pokemon-catalogue.page';
 import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -23,6 +24,7 @@ import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon
     PokemonListComponent,
     PokemonCataloguePage,
     PokemonListItemComponent,
+    NavbarComponent,
   ],
   imports: [ //Modules
     BrowserModule,
