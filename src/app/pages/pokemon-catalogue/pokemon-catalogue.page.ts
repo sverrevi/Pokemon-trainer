@@ -21,6 +21,5 @@ import { PokemonCatalogueService } from "src/app/services/pokemon-catalogue.serv
     
     ngOnInit(): void {
         this.pokemonCatalogueService.findAllPokemons();
-
     }
   }

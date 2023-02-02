@@ -20,6 +20,7 @@ export class PokemonCatalogueService {
 
   get errors(): string { return this._error; }
 
+  getPokemonSprite(id: any): string { return `${environment.apiPokemonSprite}${id}.png`}
 
   public findAllPokemons(): void {
     this.http.get<PokemonList>(apiPokemons)

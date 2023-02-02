@@ -10,6 +10,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { FormsModule } from '@angular/forms';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonCataloguePage } from './pages/pokemon-catalogue/pokemon-catalogue.page';
+import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
 
 
 
@@ -21,6 +22,7 @@ import { PokemonCataloguePage } from './pages/pokemon-catalogue/pokemon-catalogu
     LoginFormComponent,
     PokemonListComponent,
     PokemonCataloguePage,
+    PokemonListItemComponent,
   ],
   imports: [ //Modules
     BrowserModule,

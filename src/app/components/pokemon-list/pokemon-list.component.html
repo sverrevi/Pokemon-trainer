@@ -1,8 +1,7 @@
 <ul> 
-    <li *ngFor="let pokemon of pokemons"> 
-        <span>{{ pokemon.name }} and url: {{  pokemon.url.match("/^\d+$/") }}</span>
-        
-    </li>
-    
+    <app-pokemon-list-item *ngFor="let pokemon of pokemons"
+    [pokemon]="pokemon">
 
+    </app-pokemon-list-item>
+    
 </ul>
