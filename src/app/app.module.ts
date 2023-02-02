@@ -12,6 +12,7 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
 import { PokemonCataloguePage } from './pages/pokemon-catalogue/pokemon-catalogue.page';
 import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CatchPokemonButtonComponent } from './components/catch-pokemon-button/catch-pokemon-button.component';
 
 
 
@@ -25,6 +26,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     PokemonCataloguePage,
     PokemonListItemComponent,
     NavbarComponent,
+    CatchPokemonButtonComponent,
   ],
   imports: [ //Modules
     BrowserModule,
