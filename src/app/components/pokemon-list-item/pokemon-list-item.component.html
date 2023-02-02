@@ -1,5 +1,10 @@
 
-<li *ngIf="pokemon">
-    <img [src]="getSprite()" [alt]="pokemon.name" />
-    <span>{{ pokemon.name }} </span> 
+<li *ngIf="pokemon" class="mb-3 shadow">
+    <section>
+        <img [src]="getSprite()" [alt]="pokemon.name" class="w-52" />
+    </section>
+    <section>
+        <span>{{ pokemon.name }} </span>
+    </section>
+     
 </li>
