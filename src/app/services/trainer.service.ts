@@ -28,4 +28,19 @@ export class TrainerService {
     }
     return false; 
   } 
+
+  public catchPokemon(pokemon: Pokemon): void {
+    if(this._trainer){
+      this._trainer.pokemon.push(pokemon);
+
+    }
+  }
+
+  public releasePokemon(pokemonName: string): void {
+    if (confirm("You are about to release this pokemon. Are you ok with this?")){
+      if(this._trainer){
+        this._trainer.pokemon = this._trainer.pokemon.filter((pokemon: Pokemon) => pokemon.name !== pokemonName )
+      }
+    }
+  }
 }
