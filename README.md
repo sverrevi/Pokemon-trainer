@@ -4,4 +4,4 @@ This repository contains the scripts for the Pokémon trainer application given 
 
 
 ### Authors
-The authors of this work are Erik Skryseth and Sverre Vinje
+The authors of this work are Erik Skryseth and Sverre Vinje.
