@@ -34,7 +34,10 @@ export class CatchPokemonService {
     }
 
     if(this.trainerService.chkCaughtPokemon(pokemonName)){
-      throw new Error('Origin: addPokemonToTrainer: You have alredy chaught this pokemon');
+      this.trainerService.releasePokemon(pokemonName);
+    } else {
+
+      this.trainerService.catchPokemon(pokemon);
     }
 
     const headers = new HttpHeaders({
@@ -43,7 +46,7 @@ export class CatchPokemonService {
     })
 
     return this.http.patch<Trainer>(`${apiTrainers}/${trainer.id}`, {
-      pokemon: [... trainer.pokemon, pokemon.name]
+      pokemon: [... trainer.pokemon]
     }, { headers }).pipe(
       tap((updatedTrainer: Trainer) => {
         this.trainerService.trainer = updatedTrainer;

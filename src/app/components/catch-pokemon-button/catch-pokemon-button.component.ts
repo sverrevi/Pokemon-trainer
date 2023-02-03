@@ -23,8 +23,8 @@ export class CatchPokemonButtonComponent implements OnInit {
     //Add pokemon to the trainers pokemon
     this.catchPokemonService.addPokemonToTrainer(this.pokemonName)
     .subscribe({
-      next: (response: Trainer) => {
-        console.log("NEXT: ", response);
+      next: (trainer: Trainer) => {
+        this.isCaughtByTrainer = this.trainerService.chkCaughtPokemon(this.pokemonName);
       },
       error: (error: HttpErrorResponse) => {
         alert("ERROR" + error.message);
