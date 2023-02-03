@@ -5,7 +5,7 @@
         
         <ng-container *ngIf="isCaughtByTrainer; then caught else notCaught"></ng-container>
         <ng-template #caught>
-            <span class="text-red-600">Aleredy got this one!</span>
+            <span class="text-xl-600">You have this pokemon. Click if you want to relase it</span>
         </ng-template>
         <ng-template #notCaught> 
             <span class="text-xl"> Catch Pokemon!</span> 
