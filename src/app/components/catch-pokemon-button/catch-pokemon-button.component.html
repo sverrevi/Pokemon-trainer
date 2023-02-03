@@ -2,6 +2,14 @@
     <button
         (click)="onCatchPokemonClick()" 
         class="border border-slate-300 bg-blue-600 rounded-md flex justify-center items-center p-2">
-         Catch Pokemon!
+        
+        <ng-container *ngIf="isCaughtByTrainer; then caught else notCaught"></ng-container>
+        <ng-template #caught>
+            <span class="text-red-600">Aleredy got this one!</span>
+        </ng-template>
+        <ng-template #notCaught> 
+            <span class="text-xl"> Catch Pokemon!</span> 
+        </ng-template>
+
     </button>
 </aside>

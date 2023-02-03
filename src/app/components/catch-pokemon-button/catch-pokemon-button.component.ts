@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Trainer } from 'src/app/models/trainer.model';
 import { CatchPokemonService } from 'src/app/services/catch-pokemon.service';
 import { TrainerService } from 'src/app/services/trainer.service';
@@ -9,11 +9,15 @@ import { TrainerService } from 'src/app/services/trainer.service';
   templateUrl: './catch-pokemon-button.component.html',
   styleUrls: ['./catch-pokemon-button.component.css']
 })
-export class CatchPokemonButtonComponent {
+export class CatchPokemonButtonComponent implements OnInit {
 
   @Input() pokemonName: string ="";
 
-  constructor(private readonly catchPokemonService: CatchPokemonService) {}
+  public isCaughtByTrainer: boolean = false;
+
+  constructor(
+    private readonly catchPokemonService: CatchPokemonService,
+    private readonly trainerService: TrainerService ) {}
 
   onCatchPokemonClick(): void {
     //Add pokemon to the trainers pokemon
@@ -23,9 +27,15 @@ export class CatchPokemonButtonComponent {
         console.log("NEXT: ", response);
       },
       error: (error: HttpErrorResponse) => {
-        console.log("ERROR", error.message);
+        alert("ERROR" + error.message);
       }
     });
+  }
+
+  ngOnInit(): void {
+
+    this.isCaughtByTrainer = this.trainerService.chkCaughtPokemon(this.pokemonName);
+    
   }
 
 }

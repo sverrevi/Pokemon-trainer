@@ -24,7 +24,8 @@ export class TrainerService {
 
   public chkCaughtPokemon(pokemonName: string): boolean {
     if(this.trainer){
-      return Boolean(this.trainer.pokemon.find((pokemon: Pokemon) => pokemon.name === pokemonName))
+      //Had to make the property of this any, since the pokemons in the Trainer array is different from the Pokemonmodel, not ideal solution. 
+      return Boolean(this.trainer.pokemon.find((pokemon: any) => pokemon === pokemonName))
     }
     return false; 
   } 
