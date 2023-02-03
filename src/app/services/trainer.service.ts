@@ -24,22 +24,21 @@ export class TrainerService {
 
   public chkCaughtPokemon(pokemonName: string): boolean {
     if(this.trainer){
-      return Boolean(this.trainer.pokemon.find((pokemon: string) => pokemon === pokemonName))
+      return Boolean(this.trainer.pokemon.find((pokemon: Pokemon) => pokemon.name === pokemonName))
     }
     return false; 
   } 
 
   public catchPokemon(pokemon: Pokemon): void {
     if(this._trainer){
-      this._trainer.pokemon.push(pokemon.name);
+      this._trainer.pokemon.push(pokemon);
 
     }
   }
 
   public releasePokemon(pokemonName: string): void {
     if(this._trainer){
-      this._trainer.pokemon = this._trainer.pokemon.filter((pokemon: string) => pokemon !== pokemonName )
-      console.log(this._trainer.pokemon)
+      this._trainer.pokemon = this._trainer.pokemon.filter((pokemon: Pokemon) => pokemon.name !== pokemonName )
     }
   }
 }

@@ -18,6 +18,7 @@ export class PokemonCatalogueService {
 
   get pokemons(): Pokemon[] { return this._pokemons; }
 
+
   get errors(): string { return this._error; }
 
   getPokemonSprite(id: any): string { return `${environment.apiPokemonSprite}${id}.png`}
@@ -39,4 +40,5 @@ export class PokemonCatalogueService {
     return this.pokemons.find((pokemon: Pokemon) => pokemon.name === name);
    }
 
+   
 }
