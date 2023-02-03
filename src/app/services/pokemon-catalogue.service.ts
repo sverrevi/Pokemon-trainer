@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { finalize } from 'rxjs';
 import { environment } from 'src/environment/environment';
 import { Pokemon, PokemonList } from '../models/pokemon.model';
 
@@ -13,6 +14,7 @@ export class PokemonCatalogueService {
   private _pokemonList?: PokemonList; 
   private _pokemons: Pokemon[] = []; 
   private _error: string = "";
+  private _loading: boolean = false;
 
   constructor(private readonly http: HttpClient) { }
 
@@ -24,7 +26,17 @@ export class PokemonCatalogueService {
   getPokemonSprite(id: any): string { return `${environment.apiPokemonSprite}${id}.png`}
 
   public findAllPokemons(): void {
+    if(this._pokemons.length > 0 || this._loading)  {
+      return;  
+    }
+    this._loading = true;
     this.http.get<PokemonList>(apiPokemons)
+    .pipe(
+      finalize(() => {
+        this._loading = false;
+      })
+    )
+    
     .subscribe({
       next:(data : PokemonList ) => {
         this._pokemons = data.results;
